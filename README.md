@@ -1,30 +1,30 @@
-# 🤖 AI ChatBot Pro - Advanced Conversational AI with File Analysis
+ AI ChatBot Pro - Advanced Conversational AI with File Analysis
 
 A powerful, feature-rich chatbot application built with Streamlit and OpenAI's GPT-4o, offering advanced file analysis capabilities and an intuitive user interface.
 
-## ✨ Features
+##  Features
 
-### 🎯 Core Capabilities
+###  Core Capabilities
 - **Advanced AI Conversations**: Powered by OpenAI's GPT-4o model
 - **Multi-Modal File Analysis**: Support for images, PDFs, text files, and more
 - **Real-time Chat Interface**: Modern, responsive chat experience
 - **Session Management**: Chat history with export capabilities
 - **Progress Tracking**: Real-time file processing with progress indicators
 
-### 📁 Supported File Types
+### Supported File Types
 - **Images**: JPEG, PNG, GIF, BMP, WebP
 - **Documents**: PDF, TXT, DOC, DOCX
 - **Data Files**: CSV, JSON
 - **Code Files**: Various text-based formats
 
-### 🎨 User Interface
+### User Interface
 - **Colorful Modern Design**: Gradient backgrounds and smooth animations
 - **Responsive Layout**: Works on desktop and mobile devices
 - **Interactive Sidebar**: File uploads, statistics, and quick actions
 - **Chat Export**: Download conversation history as JSON
 - **Real-time Statistics**: Message counts and file processing stats
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.11 or higher
@@ -34,9 +34,9 @@ A powerful, feature-rich chatbot application built with Streamlit and OpenAI's G
 
 1. **Clone or download this project**
 2. **Install dependencies**:
-   ```bash
+   
    pip install streamlit openai pillow pypdf2 python-magic chardet
-   ```
+   
 
 3. **Set up your OpenAI API key**:
    - Create a `.env` file in the project root
@@ -44,62 +44,74 @@ A powerful, feature-rich chatbot application built with Streamlit and OpenAI's G
    - Or set it as an environment variable
 
 4. **Run the application**:
-   ```bash
+  
    streamlit run app.py --server.port 5000
-   ```
 
 5. **Open your browser** and navigate to `http://localhost:5000`
 
-## 📂 Project Structure
+## Project Structure
 
-```
 ai-chatbot-pro/
-├── app.py                 # Main Streamlit application
-├── utils/
-│   ├── ai_client.py       # OpenAI API client
-│   └── file_processor.py  # File analysis engine
-├── .streamlit/
-│   └── config.toml        # Streamlit configuration
-├── pyproject.toml         # Project dependencies
-├── README.md              # This file
-└── requirements.txt       # Python dependencies
-```
 
-## 🔧 Configuration
+├── app.py                 # Main Streamlit application
+
+├── utils/
+
+│   ├── ai_client.py       # OpenAI API client
+
+│   └── file_processor.py  # File analysis engine
+
+├── .streamlit/
+
+│   └── config.toml        # Streamlit configuration
+
+├── pyproject.toml         # Project dependencies
+
+├── README.md              # This file
+
+└── requirements.txt       # Python dependencies
+
+##  Configuration
 
 ### Streamlit Configuration (`.streamlit/config.toml`)
-```toml
+
 [server]
 headless = true
 address = "0.0.0.0"
 port = 5000
-```
+
 
 ### Environment Variables
+
 - `OPENAI_API_KEY`: Your OpenAI API key (required)
 
-## 🎯 Usage Examples
+##  Usage Examples
 
-### 💬 Basic Conversation
+###  Basic Conversation
+
 Simply type your message in the chat input and get intelligent responses from GPT-4o.
 
-### 📊 File Analysis
+###  File Analysis
+
 1. Upload files using the sidebar file uploader
 2. Ask questions about your files: "Analyze this data" or "What's in this image?"
 3. Get comprehensive analysis results with insights
 
-### ⚡ Quick Actions
+###  Quick Actions
+
 Use the sidebar quick action buttons for common tasks:
 - **Writing Help**: Get assistance with writing tasks
 - **Data Analysis**: Analyze uploaded data files
 - **Brainstorming**: Generate creative ideas
 
-### 💾 Export Chat History
+###  Export Chat History
+
 Click the "Export Chat" button to download your conversation history as a JSON file.
 
-## 🛠️ Technical Details
+##  Technical Details
 
 ### AI Models Used
+
 - **Primary Model**: GPT-4o (OpenAI)
 - **Capabilities**: Text understanding, image analysis, code assistance, data insights
 
@@ -114,7 +126,7 @@ Click the "Export Chat" button to download your conversation history as a JSON f
 - **Progress Indicators**: Real-time feedback during file processing
 - **Error Handling**: Comprehensive error management with user-friendly messages
 
-## 🎨 Customization
+##  Customization
 
 ### Color Scheme
 The application uses a modern gradient color scheme defined in CSS variables:
@@ -125,13 +137,13 @@ The application uses a modern gradient color scheme defined in CSS variables:
 ### Styling
 All styling is contained in the `load_css()` function in `app.py`. You can modify colors, fonts, and layouts by editing the CSS.
 
-## 🔒 Security
+##  Security
 
 - API keys are handled securely through environment variables
 - File processing is done locally without external uploads
 - Chat history remains on your local session
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -147,7 +159,7 @@ All styling is contained in the `load_css()` function in `app.py`. You can modif
    - Large files may take time to process
    - Consider reducing file sizes for faster analysis
 
-## 📝 Dependencies
+##  Dependencies
 
 ### Core Dependencies
 - `streamlit>=1.46.0` - Web application framework
@@ -157,7 +169,7 @@ All styling is contained in the `load_css()` function in `app.py`. You can modif
 - `python-magic>=0.4.27` - File type detection
 - `chardet>=5.2.0` - Character encoding detection
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to enhance this project by:
 1. Adding support for more file types
@@ -165,17 +177,9 @@ Feel free to enhance this project by:
 3. Adding new AI capabilities
 4. Optimizing performance
 
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🙋 Support
+## Support
 
 For questions or issues:
 1. Check the troubleshooting section above
 2. Review the code comments for implementation details
 3. Refer to the OpenAI API documentation for API-related questions
-
----
-
-**Built with ❤️ using Streamlit and OpenAI GPT-4o**
