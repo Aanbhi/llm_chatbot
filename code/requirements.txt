@@ -1,0 +1,8 @@
+
+streamlit>=1.46.0
+openai>=1.90.0
+pillow>=11.2.1
+pypdf2>=3.0.1
+python-magic>=0.4.27
+chardet>=5.2.0
+requests>=2.31.0
