@@ -70,11 +70,6 @@ chatgpt_clone/
 
 ## Environment Variables
 
-
----
-
-## Environment Variables
-
 Create a `.env` file with your OpenAI API key:
 
 ```env
@@ -86,9 +81,9 @@ Running Locally
 
 Prerequisites
 
-Python 3.10+
+1. Python 3.10+
 
-pip
+2. pip
 
 Steps
 
@@ -103,6 +98,7 @@ pip install -r requirements.txt
 streamlit run main.py
 
 Docker Deployment (Local)
+
 Build and run the container:
 
 docker build -t chatgpt-clone .
