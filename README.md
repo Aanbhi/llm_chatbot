@@ -99,3 +99,42 @@ pip install -r requirements.txt
 streamlit run main.py
 
 ---
+
+## Docker Deployment (Local)
+Build and run the container:
+
+docker build -t chatgpt-clone .
+docker run -p 8501:8501 chatgpt-clone
+
+Access the app at http://localhost:8501
+
+---
+
+## Render Deployment (Cloud)
+
+1. Push the code to a GitHub repository.
+
+2. Create a new Web Service at Render.
+
+3. Connect your repository and configure:
+
+4. Build Command: pip install -r requirements.txt
+
+5. Start Command: streamlit run main.py --server.port=10000 --server.enableCORS=false
+
+6. Python Version: 3.10
+
+7. Environment Variable: OPENAI_API_KEY=your_openai_key_here
+
+8. Render will automatically build and deploy the application.
+
+---
+
+## Notes and Considerations
+
+Only .txt files are supported for file upload to maintain lightweight memory usage.
+
+This setup avoids storing embeddings or large files on disk to stay within Render’s free-tier RAM and storage limits.
+
+For persistent vector storage, you can optionally extend rag_engine.py using FAISS .save_local() and .load_local() methods.
+
