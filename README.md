@@ -45,16 +45,32 @@ This project is a lightweight and deployable ChatGPT-style chatbot application b
 ## Project Structure
 
 chatgpt_clone/
+
 ├── app/
+
 │ ├── rag_engine.py # Handles RAG and vector search
+
 │ ├── memory.py # Session-based chat history
+
 │ └── utils.py # Utility functions (optional extensions)
+
 ├── uploads/ # Temporary document upload storage
+
 ├── vectorstore/ # Reserved for FAISS persistence (optional)
+
 ├── main.py # Streamlit app entrypoint
+
 ├── requirements.txt # Python dependencies
+
 ├── Dockerfile # Container configuration
+
 └── .env # OpenAI API key (not to be committed)
+
+---
+
+## Environment Variables
+
+
 ---
 
 ## Environment Variables
@@ -63,10 +79,13 @@ Create a `.env` file with your OpenAI API key:
 
 ```env
 OPENAI_API_KEY=your_openai_key_here
+
 Do not commit this file to version control. You can also set it through your Render dashboard or Docker environment.
 
 Running Locally
+
 Prerequisites
+
 Python 3.10+
 
 pip
