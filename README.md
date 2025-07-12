@@ -1,185 +1,116 @@
- AI ChatBot Pro - Advanced Conversational AI with File Analysis
+# ChatGPT Clone with RAG, Vector Embeddings, and LLM
 
-A powerful, feature-rich chatbot application built with Streamlit and OpenAI's GPT-4o, offering advanced file analysis capabilities and an intuitive user interface.
+This project is a lightweight and deployable ChatGPT-style chatbot application built with the following features:
+- Large Language Model (LLM) powered responses using the OpenAI API
+- Retrieval-Augmented Generation (RAG) with FAISS vector search
+- Vector embeddings for document context
+- Upload support for `.txt` files to enhance chat understanding
+- Streamlit-based web user interface
+- Chat memory and history functionality
+- Docker support for local execution
+- Render-ready deployment
 
-##  Features
+---
 
-###  Core Capabilities
-- **Advanced AI Conversations**: Powered by OpenAI's GPT-4o model
-- **Multi-Modal File Analysis**: Support for images, PDFs, text files, and more
-- **Real-time Chat Interface**: Modern, responsive chat experience
-- **Session Management**: Chat history with export capabilities
-- **Progress Tracking**: Real-time file processing with progress indicators
+## Features
 
-### Supported File Types
-- **Images**: JPEG, PNG, GIF, BMP, WebP
-- **Documents**: PDF, TXT, DOC, DOCX
-- **Data Files**: CSV, JSON
-- **Code Files**: Various text-based formats
+1. **Text-based Conversation**  
+   Users can chat with the AI assistant in a conversational interface.
 
-### User Interface
-- **Colorful Modern Design**: Gradient backgrounds and smooth animations
-- **Responsive Layout**: Works on desktop and mobile devices
-- **Interactive Sidebar**: File uploads, statistics, and quick actions
-- **Chat Export**: Download conversation history as JSON
-- **Real-time Statistics**: Message counts and file processing stats
+2. **Contextual Document Upload**  
+   Upload `.txt` files to provide relevant content for the chatbot to reference via RAG.
 
-##  Quick Start
+3. **On-the-fly Embedding and Search**  
+   Documents are embedded using the OpenAI Embeddings API and searched using FAISS.
 
-### Prerequisites
-- Python 3.11 or higher
-- OpenAI API key (get from [OpenAI Platform](https://platform.openai.com))
+4. **Chat History**  
+   Previous interactions are stored per session and displayed chronologically.
 
-### Installation
+5. **Clear Chat History**  
+   Users can reset the conversation at any time using a dedicated sidebar control.
 
-1. **Clone or download this project**
-2. **Install dependencies**:
-   
-   pip install streamlit openai pillow pypdf2 python-magic chardet
-   
+---
 
-3. **Set up your OpenAI API key**:
-   - Create a `.env` file in the project root
-   - Add your API key: `OPENAI_API_KEY=your_api_key_here`
-   - Or set it as an environment variable
+## Technologies Used
 
-4. **Run the application**:
-  
-   streamlit run app.py --server.port 5000
+- Python 3.10
+- Streamlit
+- LangChain
+- OpenAI API
+- FAISS
+- Docker
 
-5. **Open your browser** and navigate to `http://localhost:5000`
+---
 
 ## Project Structure
 
-ai-chatbot-pro/
+chatgpt_clone/
+├── app/
+│ ├── rag_engine.py # Handles RAG and vector search
+│ ├── memory.py # Session-based chat history
+│ └── utils.py # Utility functions (optional extensions)
+├── uploads/ # Temporary document upload storage
+├── vectorstore/ # Reserved for FAISS persistence (optional)
+├── main.py # Streamlit app entrypoint
+├── requirements.txt # Python dependencies
+├── Dockerfile # Container configuration
+└── .env # OpenAI API key (not to be committed)
+---
 
-├── app.py                 # Main Streamlit application
+## Environment Variables
 
-├── utils/
+Create a `.env` file with your OpenAI API key:
 
-│   ├── ai_client.py       # OpenAI API client
+```env
+OPENAI_API_KEY=your_openai_key_here
+Do not commit this file to version control. You can also set it through your Render dashboard or Docker environment.
 
-│   └── file_processor.py  # File analysis engine
+Running Locally
+Prerequisites
+Python 3.10+
 
-├── .streamlit/
+pip
 
-│   └── config.toml        # Streamlit configuration
+Steps
 
-├── pyproject.toml         # Project dependencies
+git clone https://github.com/your-username/chatgpt_clone.git
+cd chatgpt_clone
 
-├── README.md              # This file
+python -m venv venv
+source venv/bin/activate  # or venv\\Scripts\\activate on Windows
 
-└── requirements.txt       # Python dependencies
+pip install -r requirements.txt
 
-##  Configuration
+streamlit run main.py
 
-### Streamlit Configuration (`.streamlit/config.toml`)
+Docker Deployment (Local)
+Build and run the container:
 
-[server]
-headless = true
-address = "0.0.0.0"
-port = 5000
+docker build -t chatgpt-clone .
+docker run -p 8501:8501 chatgpt-clone
 
+Access the app at http://localhost:8501
 
-### Environment Variables
+Render Deployment (Cloud)
+Push the code to a GitHub repository.
 
-- `OPENAI_API_KEY`: Your OpenAI API key (required)
+Create a new Web Service at Render.
 
-##  Usage Examples
+Connect your repository and configure:
 
-###  Basic Conversation
+Build Command: pip install -r requirements.txt
 
-Simply type your message in the chat input and get intelligent responses from GPT-4o.
+Start Command: streamlit run main.py --server.port=10000 --server.enableCORS=false
 
-###  File Analysis
+Python Version: 3.10
 
-1. Upload files using the sidebar file uploader
-2. Ask questions about your files: "Analyze this data" or "What's in this image?"
-3. Get comprehensive analysis results with insights
+Environment Variable: OPENAI_API_KEY=your_openai_key_here
 
-###  Quick Actions
+Render will automatically build and deploy the application.
 
-Use the sidebar quick action buttons for common tasks:
-- **Writing Help**: Get assistance with writing tasks
-- **Data Analysis**: Analyze uploaded data files
-- **Brainstorming**: Generate creative ideas
+Notes and Considerations
+Only .txt files are supported for file upload to maintain lightweight memory usage.
 
-###  Export Chat History
+This setup avoids storing embeddings or large files on disk to stay within Render’s free-tier RAM and storage limits.
 
-Click the "Export Chat" button to download your conversation history as a JSON file.
-
-##  Technical Details
-
-### AI Models Used
-
-- **Primary Model**: GPT-4o (OpenAI)
-- **Capabilities**: Text understanding, image analysis, code assistance, data insights
-
-### File Processing Engine
-- **Image Analysis**: Dimensions, format, color analysis, complexity assessment
-- **PDF Processing**: Text extraction, page analysis, content statistics
-- **Text Analysis**: Encoding detection, content statistics, language analysis
-- **Data Files**: Structure analysis for CSV/JSON files
-
-### Performance Features
-- **Caching**: Streamlit resource caching for optimal performance
-- **Progress Indicators**: Real-time feedback during file processing
-- **Error Handling**: Comprehensive error management with user-friendly messages
-
-##  Customization
-
-### Color Scheme
-The application uses a modern gradient color scheme defined in CSS variables:
-- Primary: #FF6B6B (Coral)
-- Secondary: #4ECDC4 (Turquoise)
-- Accent: #45B7D1 (Blue)
-
-### Styling
-All styling is contained in the `load_css()` function in `app.py`. You can modify colors, fonts, and layouts by editing the CSS.
-
-##  Security
-
-- API keys are handled securely through environment variables
-- File processing is done locally without external uploads
-- Chat history remains on your local session
-
-##  Troubleshooting
-
-### Common Issues
-
-1. **"Invalid API key" error**
-   - Verify your OpenAI API key is correct
-   - Check that the environment variable is set properly
-
-2. **File processing errors**
-   - Ensure files are not corrupted
-   - Check file size limits (recommended < 10MB)
-
-3. **Slow performance**
-   - Large files may take time to process
-   - Consider reducing file sizes for faster analysis
-
-##  Dependencies
-
-### Core Dependencies
-- `streamlit>=1.46.0` - Web application framework
-- `openai>=1.90.0` - OpenAI API client
-- `pillow>=11.2.1` - Image processing
-- `pypdf2>=3.0.1` - PDF text extraction
-- `python-magic>=0.4.27` - File type detection
-- `chardet>=5.2.0` - Character encoding detection
-
-## Contributing
-
-Feel free to enhance this project by:
-1. Adding support for more file types
-2. Improving the UI/UX design
-3. Adding new AI capabilities
-4. Optimizing performance
-
-## Support
-
-For questions or issues:
-1. Check the troubleshooting section above
-2. Review the code comments for implementation details
-3. Refer to the OpenAI API documentation for API-related questions
+For persistent vector storage, you can optionally extend rag_engine.py using FAISS .save_local() and .load_local() methods.
