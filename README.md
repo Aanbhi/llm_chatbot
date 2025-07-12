@@ -77,7 +77,9 @@ OPENAI_API_KEY=your_openai_key_here
 
 Do not commit this file to version control. You can also set it through your Render dashboard or Docker environment.
 
-Running Locally
+---
+
+## Running Locally
 
 Prerequisites
 
@@ -97,7 +99,9 @@ pip install -r requirements.txt
 
 streamlit run main.py
 
-Docker Deployment (Local)
+---
+
+## Docker Deployment (Local)
 
 Build and run the container:
 
@@ -106,7 +110,10 @@ docker run -p 8501:8501 chatgpt-clone
 
 Access the app at http://localhost:8501
 
-Render Deployment (Cloud)
+---
+
+## Render Deployment (Cloud)
+
 Push the code to a GitHub repository.
 
 Create a new Web Service at Render.
@@ -123,7 +130,10 @@ Environment Variable: OPENAI_API_KEY=your_openai_key_here
 
 Render will automatically build and deploy the application.
 
-Notes and Considerations
+---
+
+## Notes and Considerations
+
 Only .txt files are supported for file upload to maintain lightweight memory usage.
 
 This setup avoids storing embeddings or large files on disk to stay within Render’s free-tier RAM and storage limits.
