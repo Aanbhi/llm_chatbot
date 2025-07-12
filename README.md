@@ -70,9 +70,8 @@ chatgpt_clone/
 
 ## Environment Variables
 
-Create a `.env` file with your OpenAI API key:
+Create a .env file with your OpenAI API key:
 
-```env
 OPENAI_API_KEY=your_openai_key_here
 
 Do not commit this file to version control. You can also set it through your Render dashboard or Docker environment.
