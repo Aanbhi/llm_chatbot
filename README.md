@@ -54,15 +54,15 @@ A powerful, feature-rich chatbot application built with Streamlit and OpenAI's G
 
 ```
 ai-chatbot-pro/
-├── app.py                 # Main Streamlit application
+├── app.py
+├── requirements.txt
+├── Dockerfile  
+├── config.toml 
 ├── utils/
-│   ├── ai_client.py       # OpenAI API client
-│   └── file_processor.py  # File analysis engine
-├── .streamlit/
-│   └── config.toml        # Streamlit configuration
-├── pyproject.toml         # Project dependencies
-├── README.md              # This file
-└── requirements.txt       # Python dependencies
+│   ├── ai_client.py
+│   └── file_processor.py
+└── README.md
+
 ```
 
 ## 🔧 Configuration
